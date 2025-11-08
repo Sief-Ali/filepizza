@@ -30,7 +30,7 @@ export async function uploadFile(
   testFile: TestFile,
 ): Promise<void> {
   // Navigate to home page
-  await page.goto('http://localhost:3000/')
+  await page.goto('http://localhost:3030/')
   await expect(
     page.getByText('Peer-to-peer file transfers in your browser.'),
   ).toBeVisible()
@@ -107,7 +107,7 @@ export async function startUpload(page: Page): Promise<string> {
   await expect(shareUrlInput).toBeVisible({ timeout: 5000 })
   const shareUrl = await shareUrlInput.inputValue()
 
-  expect(shareUrl).toMatch(/http:\/\/localhost:3000\//)
+  expect(shareUrl).toMatch(/http:\/\/localhost:3030\//)
   return shareUrl
 }
 

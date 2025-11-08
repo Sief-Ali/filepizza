@@ -6,10 +6,10 @@
   "license": "BSD-3-Clause",
   "homepage": "https://github.com/kern/filepizza",
   "scripts": {
-    "dev": "next",
-    "dev:full": "docker compose up redis coturn -d && COTURN_ENABLED=true REDIS_URL=redis://localhost:6379 next",
+    "dev": "next -p 3030",
+    "dev:full": "docker compose up redis coturn -d && COTURN_ENABLED=true REDIS_URL=redis://localhost:6379 next -p 3030",
     "build": "next build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
-    "start": "next start",
+    "start": "next start -p 3030",
     "start:peerjs": "./bin/peerjs.js",
     "lint:check": "eslint 'src/**/*.ts[x]'",
     "lint:fix": "eslint 'src/**/*.ts[x]' --fix",

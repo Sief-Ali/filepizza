@@ -20,7 +20,7 @@ FROM node:lts-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-ENV PORT 3000
+ENV PORT 3030
 
 # Only copy standalone output - no need for node_modules
 COPY --from=builder /app/public ./public
@@ -28,6 +28,6 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
 USER node
-EXPOSE 3000
+EXPOSE 3030
 # Uses standalone server
 CMD ["node", "server.js"]
